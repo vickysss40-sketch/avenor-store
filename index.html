@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#173B35">
+<title>AVENOR — Built With Intent</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#171715;--stone:#e9e6df;--paper:#f5f3ee;--muted:#8e8a81;--line:#d8d4cb;--olive:#747866;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif}button,input,select{font:inherit}button{cursor:pointer}.announcement{background:var(--ink);color:#eee9df;text-align:center;padding:10px;font-size:10px;letter-spacing:.18em;text-transform:uppercase}.nav{height:76px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;background:#f5f3eef2;position:sticky;top:0;z-index:10;border-bottom:1px solid #ddd9d0;backdrop-filter:blur(12px)}.logo{font:800 27px Manrope;letter-spacing:.22em;text-decoration:none;color:var(--ink)}.navlinks{display:flex;gap:30px}.navlinks a,.navactions button{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink);text-decoration:none;background:none;border:0}.navactions{display:flex;gap:18px;align-items:center}.navactions button{font-size:19px}.menu{display:none}.hero{min-height:590px;background:#252522;position:relative;overflow:hidden;color:#f5f2eb;display:flex;align-items:center;padding:7vw}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,15,14,.9),rgba(15,15,14,.45) 55%,rgba(15,15,14,.12)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=85') center/cover}.hero-content{position:relative;max-width:650px}.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#c3bfb5}.hero h1{font:800 clamp(52px,8vw,112px)/.94 Manrope;letter-spacing:-.075em;margin:25px 0}.hero p{max-width:400px;color:#d0ccc3;font-size:14px;line-height:1.8}.cta{display:inline-flex;background:#e9e6df;color:#171715;padding:16px 23px;margin-top:22px;text-decoration:none;text-transform:uppercase;letter-spacing:.15em;font-size:10px;font-weight:700;border:0}.ticker{background:#777b69;color:#fff;padding:14px;text-align:center;letter-spacing:.22em;font-size:10px;text-transform:uppercase}.section{padding:76px 5vw}.sectionhead{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px}.sectionhead h2{font:800 clamp(27px,4vw,44px) Manrope;letter-spacing:-.06em;margin:8px 0 0}.sectionhead p{font-size:12px;color:var(--muted)}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cat{height:350px;position:relative;overflow:hidden;background:#ccc}.cat img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.cat:hover img{transform:scale(1.05)}.cat:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.65))}.catlabel{position:absolute;z-index:1;bottom:22px;left:22px;color:white}.catlabel b{display:block;font:700 22px Manrope}.catlabel span{font-size:9px;letter-spacing:.2em;text-transform:uppercase}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{min-width:0}.productimg{position:relative;aspect-ratio:3/4;background:#e2dfd8;overflow:hidden}.productimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.product:hover .productimg img{transform:scale(1.035)}.tag{position:absolute;top:12px;left:12px;background:#f5f3ee;padding:7px 9px;font-size:8px;letter-spacing:.15em;text-transform:uppercase}.wish{position:absolute;right:12px;top:10px;border:0;background:#f5f3ee;border-radius:50%;width:34px;height:34px;font-size:17px}.add{position:absolute;bottom:10px;left:10px;right:10px;border:0;background:#171715;color:white;padding:13px;text-transform:uppercase;letter-spacing:.15em;font-size:9px;opacity:0;transform:translateY(5px);transition:.2s}.product:hover .add{opacity:1;transform:none}.productinfo{padding:12px 2px}.productinfo small{color:#777;font-size:9px;letter-spacing:.15em;text-transform:uppercase}.productinfo h3{font:600 13px Manrope;margin:7px 0}.price{font-size:12px;font-weight:700}.swatches{display:flex;gap:5px;margin-top:9px}.swatches i{width:10px;height:10px;border-radius:50%;border:1px solid #aaa}.story{background:#dedbd3;display:grid;grid-template-columns:1fr 1fr;min-height:420px}.storyimg{background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1100&q=85') center/cover}.storycopy{padding:7vw;display:flex;flex-direction:column;justify-content:center}.storycopy h2{font:800 clamp(34px,5vw,60px)/1 Manrope;letter-spacing:-.07em;margin:18px 0}.storycopy p{max-width:420px;color:#5e5b55;line-height:1.8;font-size:13px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line)}.feature{background:var(--paper);padding:35px;text-align:center}.feature b{font:700 13px Manrope;letter-spacing:.08em}.feature p{font-size:11px;color:var(--muted)}
+.footerwordmark{font:900 clamp(76px,19vw,260px)/.8 Manrope,sans-serif;letter-spacing:-.09em;text-align:center;margin:65px 0 25px;color:#e9e6df;background:linear-gradient(180deg,#f1eee7 10%,#8d8b84 70%,#171715 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;overflow:hidden}
+footer .footgrid{grid-template-columns:2fr 1.1fr 1.1fr 1.5fr}
+@media(max-width:850px){footer .footgrid{grid-template-columns:1fr 1fr}.footerwordmark{margin:48px 0 22px}}
+@media(max-width:480px){.navlinks.mobile-open{max-height:75vh;overflow:auto}.navlinks.mobile-open .dropdown{display:block}.navlinks.mobile-open .navdrop>button{width:100%;text-align:left}.navlinks.mobile-open .dropdown a{padding:8px 14px}.footerwordmark{font-size:19vw}}
+
+footer{background:#171715;color:#e9e6df;padding:60px 5vw 25px}.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}.footlogo{font:800 28px Manrope;letter-spacing:.2em}.footgrid p,.footgrid a{color:#aaa69d;font-size:12px;line-height:2;text-decoration:none;display:block}.footgrid h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase}.copyright{border-top:1px solid #45443f;margin-top:45px;padding-top:20px;color:#8f8b83;font-size:10px;display:flex;justify-content:space-between}.overlay{display:none;position:fixed;inset:0;background:#0008;z-index:30}.overlay.show{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(440px,100%);background:var(--paper);padding:25px;overflow:auto}.drawerhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.drawerhead h3{font:700 18px Manrope}.close{border:0;background:none;font-size:24px}.cartitem{display:grid;grid-template-columns:82px 1fr auto;gap:14px;padding:17px 0;border-bottom:1px solid var(--line)}.cartitem img{width:82px;height:100px;object-fit:cover}.cartitem h4{font-size:12px;margin:4px 0}.cartitem small{color:#777}.qty{display:flex;gap:10px;align-items:center;margin-top:10px}.qty button{border:1px solid var(--line);background:none;width:25px;height:25px}.total{display:flex;justify-content:space-between;padding:20px 0;font-weight:700}.checkout{width:100%;background:var(--ink);color:white;border:0;padding:17px;text-transform:uppercase;letter-spacing:.15em;font-size:10px}.empty{text-align:center;padding:55px 10px;color:#777}.modal{display:none;position:fixed;inset:0;background:#0009;z-index:40;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{background:var(--paper);width:min(470px,100%);padding:30px;max-height:90vh;overflow:auto}.modalbox h2{font:800 25px Manrope}.modalbox input,.modalbox select{width:100%;padding:13px;border:1px solid var(--line);background:transparent;margin:7px 0 14px}.modalbox label{font-size:10px;text-transform:uppercase;letter-spacing:.13em}.modalbox button.primary{width:100%;padding:15px;background:var(--ink);color:white;border:0;margin-top:10px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}.filters select,.filters input{padding:11px;border:1px solid var(--line);background:transparent;font-size:11px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#171715;color:white;padding:13px 20px;font-size:11px;opacity:0;transition:.25s;z-index:60}.toast.show{opacity:1;transform:translate(-50%,0)}.mobileonly{display:none}
+
+.logo-lockup{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brandmark{width:34px;height:34px;filter:drop-shadow(2px 2px 0 #b7b2a8)}
+.logo{font:800 25px Manrope;letter-spacing:.24em;background:linear-gradient(120deg,#161615 15%,#77766e 48%,#1b1b19 72%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 1px 0 rgba(255,255,255,.25)}
+.hero:before{background:linear-gradient(90deg,rgba(15,15,14,.78),rgba(15,15,14,.3) 55%,rgba(15,15,14,.04)),url('assets/avenor-campaign-01.png') center/cover}
+.hero h1{letter-spacing:-.09em;text-shadow:0 8px 35px #0008}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:1px #e9e6df}
+.hero .hero-stamp{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff55;padding:9px 12px;margin-top:18px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#e9e6df}
+.hero .hero-stamp:before{content:"";width:7px;height:7px;border-radius:50%;background:#a6a995;box-shadow:0 0 12px #a6a995}
+.product-marquee{padding:64px 0 70px;background:#e5e2da;overflow:hidden}
+.marquee-head{padding:0 5vw 24px;display:flex;align-items:end;justify-content:space-between}
+.marquee-head h2{font:800 clamp(28px,4vw,46px) Manrope;letter-spacing:-.07em;margin:8px 0}
+.marquee-head p{font-size:10px;color:#77736b;letter-spacing:.16em;text-transform:uppercase}
+.marquee-window{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee-track{display:flex;gap:16px;width:max-content;animation:productDrift 38s linear infinite}
+.marquee-window:hover .marquee-track{animation-play-state:paused}
+.marquee-card{width:230px;background:#f5f3ee;flex-shrink:0}
+.marquee-card img{width:100%;height:265px;object-fit:cover;display:block}
+.marquee-card div{padding:12px 14px}
+.marquee-card small{font-size:8px;letter-spacing:.18em;color:#77736b;text-transform:uppercase}
+.marquee-card b{display:block;font:700 12px Manrope;margin-top:6px}
+.marquee-card span{font-size:11px;display:block;margin-top:5px}
+@keyframes productDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.footerbrand{display:flex;align-items:center;gap:12px}.footerbrand svg{width:43px;height:43px}.footlogo{font:800 27px Manrope;letter-spacing:.22em;background:linear-gradient(120deg,#fff,#89877f);background-clip:text;-webkit-background-clip:text;color:transparent}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.productimg img,.cat img{transition:none}}
+
+
+.nav{gap:22px}.navlinks{display:flex;align-items:center;gap:clamp(12px,1.8vw,28px);flex:1;justify-content:center}
+.navlinks>a,.navdrop>button{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:var(--ink);text-decoration:none;background:none;border:0;padding:15px 0}
+.navdrop{position:relative}.navdrop>button span{font-size:13px;color:#777;margin-left:4px}
+.dropdown{display:none;position:absolute;top:100%;left:-18px;min-width:230px;background:#f8f7f3;border:1px solid #e1ded6;box-shadow:0 18px 45px #17171520;padding:10px 0;z-index:20}
+.dropdown a{display:block;padding:12px 18px;color:#24231f;text-decoration:none;font-size:12px;font-weight:600}
+.dropdown a:hover{background:#e9e6df}
+.navdrop:hover .dropdown,.navdrop:focus-within .dropdown{display:block}
+.mobileonly{display:none}
+@media(max-width:1050px){.nav{padding:0 3vw;gap:12px}.navlinks{gap:12px}.navlinks>a,.navdrop>button{font-size:9px;letter-spacing:.06em}.logo{font-size:21px}.brandmark{width:28px}}
+
+@media(max-width:850px){.navlinks{display:none}.navlinks.mobile-open{display:flex;position:absolute;top:64px;left:0;right:0;background:#f5f3ee;padding:18px 5vw;align-items:stretch;flex-direction:column;gap:4px;border-bottom:1px solid var(--line);box-shadow:0 12px 25px #0001}.navlinks.mobile-open .dropdown{position:static;box-shadow:none;border:0;padding-left:10px}.navlinks.mobile-open .navdrop:focus-within .dropdown{display:block}.menu{display:block}.categories{grid-template-columns:repeat(2,1fr)}.cat{height:270px}.products{grid-template-columns:repeat(2,1fr);gap:12px}.add{opacity:1;transform:none}.story{grid-template-columns:1fr}.storyimg{min-height:260px}.footgrid{grid-template-columns:1fr 1fr}.hero{min-height:520px}.section{padding:55px 5vw}}
+@media(max-width:480px){.nav{height:64px}.logo{font-size:22px}.navlinks.mobile-open{top:64px}.navactions{gap:10px}.hero{min-height:500px;padding:8vw}.hero h1{font-size:58px}.sectionhead{display:block}.sectionhead p{margin-top:8px}.cat{height:220px}.catlabel{left:13px;bottom:14px}.catlabel b{font-size:17px}.footgrid{grid-template-columns:1fr 1fr}.footgrid>div:first-child{grid-column:1/-1}.copyright{display:block;line-height:2}}
+
+/* AVENOR V4 — fresh forest / sage / warm ivory palette */
+:root{
+ --ink:#203a32;
+ --stone:#dce5dc;
+ --paper:#f4f3ec;
+ --muted:#7c887d;
+ --line:#d2dbd1;
+ --olive:#8b9b86;
+ --white:#fff;
+ --accent:#bd8066;
+}
+body{background:var(--paper);color:var(--ink)}
+.announcement{background:#203a32;color:#f6f4ec}
+.nav{background:#f4f3ecf2;border-bottom-color:#d2dbd1}
+.navlinks>a,.navdrop>button,.navactions button{color:#203a32}
+.logo{background:linear-gradient(120deg,#203a32 12%,#829783 48%,#bd8066 78%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.brandmark{filter:drop-shadow(2px 2px 0 #aab9a8)}
+.hero{background:#203a32;color:#f4f3ec}
+.hero:before{background:linear-gradient(90deg,rgba(20,48,40,.88),rgba(32,58,50,.55) 54%,rgba(32,58,50,.15)),url('assets/avenor-campaign-01.png') center/cover}
+.eyebrow{color:#aab9a8}
+.hero p{color:#e0e7df}
+.hero .outline{-webkit-text-stroke-color:#f4f3ec}
+.hero .hero-stamp{border-color:#dce5dc66;color:#e5ebe2}
+.hero .hero-stamp:before{background:#bd8066;box-shadow:0 0 12px #bd8066}
+.cta{background:#dce5dc;color:#203a32}
+.cta:hover{background:#bd8066;color:#fff}
+.ticker{background:#8b9b86;color:#203a32}
+.product-marquee{background:#e6ebe2}
+.marquee-card{background:#f7f6f0}
+.marquee-card small{color:#78877b}
+.sectionhead p{color:#7c887d}
+.cat:after{background:linear-gradient(transparent,rgba(24,53,44,.72))}
+.productimg{background:#e2e9df}
+.tag{background:#f4f3ec;color:#203a32}
+.wish{background:#f4f3ec;color:#203a32}
+.add{background:#203a32;color:#f4f3ec}
+.add:hover{background:#bd8066}
+.swatches i:nth-child(1){background:#203a32!important}
+.swatches i:nth-child(2){background:#c9c8b9!important}
+.swatches i:nth-child(3){background:#8b9b86!important}
+.story{background:#e2e9df}
+.storycopy p{color:#5e7065}
+.features{background:#d2dbd1;border-color:#d2dbd1}
+.feature{background:#f4f3ec}
+.feature p{color:#7c887d}
+footer{background:#203a32;color:#f4f3ec}
+.footgrid p,.footgrid a{color:#c0cec1}
+.footgrid a:hover{color:#e0a48a}
+.footgrid h4{color:#e0e7df}
+.footlogo{background:linear-gradient(120deg,#f4f3ec,#a9b9a8 65%,#d69a7f);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footerwordmark{background:linear-gradient(180deg,#f4f3ec 10%,#9caf9d 68%,#203a32 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.copyright{border-top-color:#526c60;color:#aab9a8}
+.dropdown{background:#f7f6f0;border-color:#d2dbd1;box-shadow:0 18px 45px #203a3220}
+.dropdown a{color:#203a32}
+.dropdown a:hover{background:#e2e9df}
+.filters select,.filters input{border-color:#c8d3c8;color:#203a32}
+.drawer,.modalbox{background:#f4f3ec;color:#203a32}
+.drawerhead{border-bottom-color:#d2dbd1}
+.cartitem{border-bottom-color:#d2dbd1}
+.qty button{border-color:#d2dbd1;color:#203a32}
+.checkout,.modalbox button.primary{background:#203a32;color:#f4f3ec}
+.modalbox input,.modalbox select{border-color:#c8d3c8;color:#203a32}
+.toast{background:#203a32;color:#f4f3ec}
+
+
+/* AVENOR fresh palette: pine / mint / soft lime */
+:root{
+ --ink:#173B35;
+ --stone:#DCEBE2;
+ --paper:#F4F7F2;
+ --muted:#71827A;
+ --line:#D5E2D9;
+ --olive:#8FAF9C;
+ --white:#FFFFFF;
+ --accent:#D9EF72;
+}
+body{background:var(--paper);color:var(--ink)}
+.announcement{background:#173B35;color:#EAF4EC}
+.nav{background:rgba(244,247,242,.96);border-bottom:1px solid #D5E2D9}
+.navlinks>a,.navdrop>button,.navactions button{color:#173B35}
+.logo{background:linear-gradient(110deg,#173B35 10%,#6D9B83 52%,#173B35 88%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.brandmark{filter:drop-shadow(2px 2px 0 #B9D6C4)}
+.hero{background:#173B35;color:#F4F7F2}
+.hero:before{background:linear-gradient(90deg,rgba(11,43,37,.88),rgba(16,59,50,.56) 52%,rgba(16,59,50,.12)),url('assets/avenor-campaign-01.png') center/cover}
+.eyebrow{color:#8DB9A1}
+.hero p{color:#D8E7DD}
+.hero .hero-stamp{border-color:#BDE0CA88;color:#E5F1E8}
+.hero .hero-stamp:before{background:#D9EF72;box-shadow:0 0 14px #D9EF72}
+.cta{background:#D9EF72;color:#173B35}
+.cta:hover{background:#C6E34F}
+.ticker{background:#BBDCC8;color:#173B35}
+.sectionhead p,.productinfo small{color:#71827A}
+.cat{background:#DCEBE2}
+.productimg{background:#E2ECE5}
+.tag,.wish{background:#EAF3EC;color:#173B35}
+.add{background:#173B35;color:#F4F7F2}
+.story{background:#DDEBE1}
+.storycopy p{color:#52685D}
+.product-marquee{background:#E5F0E8}
+.marquee-card{background:#F7FAF6}
+.marquee-card small{color:#71827A}
+.features{background:#C9DCD0;border-color:#C9DCD0}
+.feature{background:#F4F7F2}
+.dropdown{background:#F8FBF7;border-color:#D5E2D9}
+.dropdown a{color:#173B35}
+.dropdown a:hover{background:#E2EEE5}
+footer{background:#12352F;color:#EAF3EC}
+footer .footgrid p,footer .footgrid a{color:#B6CBBE}
+footer .footgrid h4{color:#D9EF72}
+footer .copyright{border-color:#42665A;color:#9EB7A8}
+.footlogo{background:linear-gradient(120deg,#F4F7F2,#A8C9B4);background-clip:text;-webkit-background-clip:text;color:transparent}
+.footerwordmark{background:linear-gradient(180deg,#F4F7F2 10%,#91B7A0 70%,#12352F 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.drawer,.modalbox{background:#F4F7F2;color:#173B35}
+.drawerhead{border-color:#D5E2D9}
+.cartitem{border-color:#D5E2D9}
+.checkout,.modalbox button.primary{background:#173B35;color:#F4F7F2}
+.modalbox input,.modalbox select,.filters select,.filters input{border-color:#C8D9CE;color:#173B35}
+.toast{background:#173B35;color:#F4F7F2}
+.footerbrand svg{color:#D9EF72}
+@media(max-width:850px){
+ .navlinks.mobile-open{background:#F4F7F2;border-color:#D5E2D9}
+}
+
+</style></head>
+<body>
+<div class="announcement">Complimentary shipping on orders above ₹1,999 · Built for your next move</div>
+<header class="nav">
+<button class="menu navactions" aria-label="Open collections" onclick="toggleMobileNav()">☰</button>
+<a class="logo-lockup" href="#" aria-label="AVENOR home">
+<svg class="brandmark" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 39 20 7h8L13 39H5Zm13 0L33 7h9L27 39h-9Zm12 0 7-15h7l-7 15h-7Z" fill="currentColor"/><path d="M20 7h8l-4 9h-8l4-9Z" fill="#858775"/></svg>
+<span class="logo">AVENOR</span></a>
+<nav class="navlinks" id="mainNav">
+<a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</a>
+<a href="#new">New arrivals</a>
+<div class="navdrop"><button type="button">Men's apparel <span>⌄</span></button><div class="dropdown">
+<a href="#new" onclick="setCategory('Lowerwear')">Track pants & joggers</a>
+<a href="#new" onclick="setCategory('Performance')">Compression T-shirts</a>
+<a href="#new" onclick="setCategory('Oversized')">Oversized T-shirts</a>
+<a href="#new" onclick="setCategory('Oversized')">Ringer T-shirts</a>
+<a href="#new" onclick="setCategory('Shorts')">Gym shorts</a>
+<a href="#new" onclick="setCategory('Shorts')">Running shorts</a>
+<a href="#new" onclick="setCategory('Performance')">Full-sleeve fitted tees</a>
+<a href="#new" onclick="setCategory('Lowerwear')">Sweatpants</a>
+</div></div>
+<div class="navdrop"><button type="button">Women's apparel <span>⌄</span></button><div class="dropdown">
+<a href="#new" onclick="setCategory('Lowerwear')">Training joggers</a>
+<a href="#new" onclick="setCategory('Performance')">Fitted performance tops</a>
+<a href="#new" onclick="setCategory('Oversized')">Oversized T-shirts</a>
+<a href="#new" onclick="setCategory('Shorts')">Gym & running shorts</a>
+<a href="#new" onclick="setCategory('Lowerwear')">Sweatpants</a>
+<a href="#new" onclick="setCategory('Performance')">Full-sleeve training tees</a>
+</div></div>
+<a href="#gear" onclick="info('Weightlifting gear','The AVENOR lifting accessories capsule is planned for a future drop. Product listings will appear here when available.')">Weightlifting gear</a>
+<a href="#combat" onclick="info('Combat equipment','Combat training equipment is planned for a future capsule. This category will open when products are available.')">Combat equipments</a>
+</nav>
+<div class="navactions"><button aria-label="Search" onclick="openSearch()">⌕</button><button aria-label="Account" onclick="openAccount()">♙</button><button aria-label="Wishlist" onclick="showWishlist()">♡</button><button aria-label="Cart" onclick="openCart()">Bag <span id="bagcount">0</span></button></div>
+</header>
+<main>
+<section class="hero"><div class="hero-content"><div class="eyebrow">AVENOR / PERFORMANCE UNIFORM 001</div><h1>BUILT TO<br><span class="outline">MOVE.</span></h1><p>Performance pieces for the work you put in — and the life you live beyond it. Form. Function. Fortitude.</p><a class="cta" href="#new">Discover the collection&nbsp; ↗</a><div class="hero-stamp">Performance / Everyday / AVENOR 001</div></div></section>
+<div class="ticker">FORM · FUNCTION · FORTITUDE &nbsp;&nbsp; / &nbsp;&nbsp; MADE FOR MOTION &nbsp;&nbsp; / &nbsp;&nbsp; BUILT WITH INTENT</div>
+
+<section class="product-marquee" aria-label="Featured products in motion">
+ <div class="marquee-head"><div><div class="eyebrow">A closer look / 001</div><h2>THE ROTATION</h2></div><p>Pieces in motion — hover to pause</p></div>
+ <div class="marquee-window"><div class="marquee-track">
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Oversized tee"><div><small>01 / Oversized</small><b>FORM OVERSIZED TEE</b><span>From ₹1,299</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80" alt="Compression tee"><div><small>02 / Performance</small><b>SECOND SKIN COMPRESSION</b><span>From ₹1,499</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=80" alt="Training shorts"><div><small>03 / Training</small><b>TEMPO TRAINING SHORTS</b><span>From ₹1,199</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=700&q=80" alt="Sweatpants"><div><small>04 / Lowerwear</small><b>OFF-DUTY SWEATPANT</b><span>From ₹1,799</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80" alt="Ringer tee"><div><small>05 / Essential</small><b>CORE RINGER TEE</b><span>From ₹1,099</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80" alt="Running shorts"><div><small>06 / Run</small><b>PACE RUNNING SHORTS</b><span>From ₹999</span></div></article>
+  <!-- Duplicate sequence creates a seamless continuous loop -->
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Oversized tee"><div><small>01 / Oversized</small><b>FORM OVERSIZED TEE</b><span>From ₹1,299</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80" alt="Compression tee"><div><small>02 / Performance</small><b>SECOND SKIN COMPRESSION</b><span>From ₹1,499</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=80" alt="Training shorts"><div><small>03 / Training</small><b>TEMPO TRAINING SHORTS</b><span>From ₹1,199</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=700&q=80" alt="Sweatpants"><div><small>04 / Lowerwear</small><b>OFF-DUTY SWEATPANT</b><span>From ₹1,799</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80" alt="Ringer tee"><div><small>05 / Essential</small><b>CORE RINGER TEE</b><span>From ₹1,099</span></div></article>
+  <article class="marquee-card"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80" alt="Running shorts"><div><small>06 / Run</small><b>PACE RUNNING SHORTS</b><span>From ₹999</span></div></article>
+ </div></div>
+</section>
+
+<section class="section" id="collections"><div class="sectionhead"><div><div class="eyebrow">Find your uniform</div><h2>THE COLLECTIONS</h2></div><p>Purpose-built. Everyday ready.</p></div><div class="categories">
+<a class="cat" href="#new" onclick="setCategory('Oversized')"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"><div class="catlabel"><span>01 / relaxed fit</span><b>Oversized</b></div></a>
+<a class="cat" href="#new" onclick="setCategory('Performance')"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80"><div class="catlabel"><span>02 / engineered fit</span><b>Performance</b></div></a>
+<a class="cat" href="#new" onclick="setCategory('Shorts')"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"><div class="catlabel"><span>03 / made for motion</span><b>Training Shorts</b></div></a>
+<a class="cat" href="#new" onclick="setCategory('Lowerwear')"><img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=800&q=80"><div class="catlabel"><span>04 / off-duty</span><b>Lowerwear</b></div></a>
+</div></section>
+<section class="section" id="new"><div class="sectionhead"><div><div class="eyebrow">The first rotation</div><h2>SHOP THE DROP</h2></div><p>Performance essentials / 001</p></div><div class="filters"><input id="search" placeholder="Search pieces…" oninput="renderProducts()"><select id="categoryFilter" onchange="renderProducts()"><option value="All">All categories</option><option>Oversized</option><option>Performance</option><option>Shorts</option><option>Lowerwear</option></select><select id="sort" onchange="renderProducts()"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div><div class="products" id="products"></div></section>
+<section class="story" id="story"><div class="storyimg"></div><div class="storycopy"><div class="eyebrow">The AVENOR point of view</div><h2>FORM.<br>FUNCTION.<br>FORTITUDE.</h2><p>We believe what you wear should move with purpose. AVENOR brings considered silhouettes, functional comfort and a confident point of view to training and everything around it.</p><a class="cta" href="#new">Explore the drop ↗</a></div></section>
+<div class="features"><div class="feature"><b>01 / CONSIDERED FIT</b><p>Designed around movement and everyday wear.</p></div><div class="feature"><b>02 / MADE TO REPEAT</b><p>Versatile essentials for your daily rotation.</p></div><div class="feature"><b>03 / EASY EXPERIENCE</b><p>Clear sizing, simple shopping and support.</p></div></div>
+</main>
+<footer>
+<div class="footgrid">
+<div>
+<div class="footerbrand"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 39 20 7h8L13 39H5Zm13 0L33 7h9L27 39h-9Zm12 0 7-15h7l-7 15h-7Z" fill="currentColor"/></svg><span class="footlogo">AVENOR</span></div>
+<p>Built with intent. Engineered for the everyday. Performance apparel for those who move with purpose.</p>
+<p>Join the rotation — get first access to new drops.</p>
+<form onsubmit="event.preventDefault();toast('Newsletter signup preview — connect an email provider to activate.');this.reset()"><input type="email" required placeholder="Email address" style="padding:12px;background:transparent;border:1px solid #555;color:white;max-width:240px"><button class="cta" style="margin:0;padding:13px">Join ↗</button></form>
+</div>
+<div><h4>Quick links</h4>
+<a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</a>
+<a href="#new">New arrivals</a><a href="#story">About us</a>
+<a href="#" onclick="info('AVENOR Journal','Stories, training notes and product features will be published here.')">Blogs / Journal</a>
+<a href="#" onclick="info('Contact AVENOR','Add your verified customer support email, phone and business address before launch.')">Contact us</a>
+<a href="#" onclick="info('Request return / exchange','Returns and exchanges will be enabled after the order management and returns workflow is connected.')">Request return / exchange</a>
+</div>
+<div><h4>Top selling</h4>
+<a href="#new" onclick="setCategory('Oversized')">Oversized T-shirts</a>
+<a href="#new" onclick="setCategory('Performance')">Performance tops</a>
+<a href="#new" onclick="setCategory('Shorts')">Gym & running shorts</a>
+<a href="#new" onclick="setCategory('Lowerwear')">Sweatpants & joggers</a>
+<a href="#collections">Shop all collections</a>
+<a href="#" onclick="info('Future drops','Casual wear, streetwear and everyday essentials are planned for future AVENOR collections.')">Coming soon</a>
+</div>
+<div><h4>Policies</h4>
+<a href="#" onclick="info('Privacy policy','Publish a reviewed privacy policy describing customer data, cookies, payments and retention before launch.')">Privacy policy</a>
+<a href="#" onclick="info('Shipping policy','Add shipping regions, dispatch timelines, charges and delivery estimates before launch.')">Shipping policy</a>
+<a href="#" onclick="info('Terms of service','Publish your reviewed terms of service before accepting orders.')">Terms of service</a>
+<a href="#" onclick="info('Terms & conditions','Add applicable purchase, pricing and promotional terms before launch.')">Terms & conditions</a>
+<a href="#" onclick="info('Sale terms & conditions','Add offer eligibility, exclusions and validity dates for any sale campaigns.')">Sale – terms & conditions</a>
+<a href="#" onclick="info('Cancellations, returns & refunds','Add cancellation windows, return eligibility, refund timelines and contact process before launch.')">Cancellations, returns & refunds</a>
+</div>
+</div>
+<div class="footerwordmark" aria-label="AVENOR">AVENOR</div>
+<div class="copyright"><span>© 2026 AVENOR. ALL RIGHTS RESERVED.</span><span>₹ INR / EN &nbsp; · &nbsp; FORM · FUNCTION · FORTITUDE</span></div>
+</footer>
+<div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()"><aside class="drawer"><div class="drawerhead"><h3>YOUR BAG <span id="drawerCount"></span></h3><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"></div><div class="total"><span>Subtotal</span><span id="subtotal">₹0</span></div><p style="font-size:10px;color:#777">Shipping and taxes calculated at checkout.</p><button class="checkout" onclick="checkout()">Continue to checkout ↗</button><p style="font-size:10px;color:#777;text-align:center">Demo storefront — payments are not enabled.</p></aside></div>
+<div class="modal" id="genericModal"><div class="modalbox"><div style="display:flex;justify-content:space-between"><div class="eyebrow">AVENOR / STORE</div><button class="close" onclick="closeModal()">×</button></div><div id="modalContent"></div></div></div><div class="toast" id="toast"></div>
+<script>
+function toggleMobileNav(){document.getElementById('mainNav').classList.toggle('mobile-open')}
+const products=[
+{id:1,name:'Form Oversized Tee',type:'Oversized',price:1299,tag:'New drop',color:'Washed black',img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85'},
+{id:2,name:'Core Ringer Tee',type:'Oversized',price:1099,tag:'Essential',color:'Stone / black',img:'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85'},
+{id:3,name:'Second Skin Compression Tee',type:'Performance',price:1499,tag:'Performance',color:'Black',img:'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=85'},
+{id:4,name:'Longline Fitted Training Tee',type:'Performance',price:1399,tag:'Training',color:'Graphite',img:'https://images.unsplash.com/photo-1565693413579-8a8eae9fcf2f?auto=format&fit=crop&w=900&q=85'},
+{id:5,name:'Tempo Training Shorts',type:'Shorts',price:1199,tag:'Made for motion',color:'Black',img:'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85'},
+{id:6,name:'Pace Running Shorts',type:'Shorts',price:999,tag:'Lightweight',color:'Stone',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=85'},
+{id:7,name:'Off-Duty Sweatpant',type:'Lowerwear',price:1799,tag:'Everyday',color:'Washed charcoal',img:'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=85'},
+{id:8,name:'Movement Training Jogger',type:'Lowerwear',price:1699,tag:'Training',color:'Deep olive',img:'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=85'}
+];
+let cart=JSON.parse(localStorage.getItem('avenor_cart')||'[]'),wish=JSON.parse(localStorage.getItem('avenor_wish')||'[]'),selected={};
+const money=n=>'₹'+n.toLocaleString('en-IN');
+function renderProducts(){let q=(document.getElementById('search')?.value||'').toLowerCase(),c=document.getElementById('categoryFilter')?.value||'All',s=document.getElementById('sort')?.value||'featured';let arr=products.filter(p=>(c==='All'||p.type===c)&&(p.name+' '+p.type+' '+p.color).toLowerCase().includes(q));if(s==='low')arr.sort((a,b)=>a.price-b.price);if(s==='high')arr.sort((a,b)=>b.price-a.price);document.getElementById('products').innerHTML=arr.map(p=>`<article class="product"><div class="productimg"><img loading="lazy" src="${p.img}" alt="${p.name}"><span class="tag">${p.tag}</span><button class="wish" onclick="toggleWish(${p.id})">${wish.includes(p.id)?'♥':'♡'}</button><button class="add" onclick="quickAdd(${p.id})">Quick add +</button></div><div class="productinfo"><small>${p.type} / ${p.color}</small><h3>${p.name}</h3><span class="price">${money(p.price)}</span><div class="swatches"><i style="background:#222"></i><i style="background:#aaa69d"></i><i style="background:#747866"></i></div></div></article>`).join('')||'<p>No products found. Try another search.</p>'}
+function setCategory(c){document.getElementById('categoryFilter').value=c;renderProducts()}
+function persist(){localStorage.setItem('avenor_cart',JSON.stringify(cart));localStorage.setItem('avenor_wish',JSON.stringify(wish));document.getElementById('bagcount').textContent=cart.reduce((a,b)=>a+b.qty,0)}
+function quickAdd(id){selected={id};modal(`<h2>${products.find(p=>p.id===id).name}</h2><p style="font-size:12px;color:#777">Select your size to add this piece.</p><label>Size</label><select id="size"><option value="">Choose size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select><button class="primary" onclick="addSelected()">Add to bag — ${money(products.find(p=>p.id===id).price)}</button>`)}
+function addSelected(){let size=document.getElementById('size').value;if(!size){toast('Please select a size');return}let p=products.find(x=>x.id===selected.id),found=cart.find(x=>x.id===p.id&&x.size===size);if(found)found.qty++;else cart.push({id:p.id,size,qty:1});persist();closeModal();toast('Added to your bag');}
+function toggleWish(id){wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];persist();renderProducts();toast(wish.includes(id)?'Saved to wishlist':'Removed from wishlist')}
+function showWishlist(){let items=products.filter(p=>wish.includes(p.id));modal(`<h2>YOUR WISHLIST</h2>${items.length?items.map(p=>`<p>${p.name} — ${money(p.price)} <button onclick="toggleWish(${p.id});showWishlist()">Remove</button></p>`).join(''):'<p>Your wishlist is empty.</p>'}`)}
+function openCart(){document.getElementById('cartOverlay').classList.add('show');renderCart()}function closeCart(){document.getElementById('cartOverlay').classList.remove('show')}
+function renderCart(){let el=document.getElementById('cartItems');document.getElementById('drawerCount').textContent='('+cart.reduce((a,b)=>a+b.qty,0)+')';if(!cart.length){el.innerHTML='<div class="empty">Your bag is waiting for its first piece.<br><br><a href="#new" onclick="closeCart()">Explore the drop ↗</a></div>'}else{el.innerHTML=cart.map((x,i)=>{let p=products.find(y=>y.id===x.id);return `<div class="cartitem"><img src="${p.img}"><div><h4>${p.name}</h4><small>Size: ${x.size}</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button>${x.qty}<button onclick="changeQty(${i},1)">+</button></div></div><b>${money(p.price*x.qty)}</b></div>`}).join('')}document.getElementById('subtotal').textContent=money(cart.reduce((a,x)=>a+products.find(p=>p.id===x.id).price*x.qty,0))}
+function changeQty(i,n){cart[i].qty+=n;if(cart[i].qty<1)cart.splice(i,1);persist();renderCart()}
+function checkout(){if(!cart.length){toast('Your bag is empty');return}closeCart();modal(`<h2>CHECKOUT PREVIEW</h2><p style="font-size:12px;color:#777">This is a front-end demo. Connect a secure backend and Razorpay before accepting real orders.</p><label>Full name</label><input placeholder="Your name"><label>Email</label><input type="email" placeholder="you@example.com"><label>Delivery address</label><input placeholder="Address, city, PIN code"><button class="primary" onclick="toast('Demo only — no order or payment was created.');closeModal()">Review order — ${money(cart.reduce((a,x)=>a+products.find(p=>p.id===x.id).price*x.qty,0))}</button>`)}
+function modal(s){document.getElementById('modalContent').innerHTML=s;document.getElementById('genericModal').classList.add('show')}function closeModal(){document.getElementById('genericModal').classList.remove('show')}
+function openAccount(){modal(`<h2>YOUR AVENOR ACCOUNT</h2><p style="font-size:12px;color:#777">Account sign-in will be enabled when authentication is connected.</p><label>Email address</label><input type="email" placeholder="you@example.com"><label>Password</label><input type="password" placeholder="Password"><button class="primary" onclick="toast('Connect Supabase Auth to enable secure login.');closeModal()">Continue</button><p style="font-size:11px">New here? Create an account at launch.</p>`)}
+function openSearch(){modal(`<h2>FIND YOUR NEXT PIECE</h2><input id="modalSearch" placeholder="Search tees, shorts, joggers…" oninput="document.getElementById('search').value=this.value;renderProducts()"><button class="primary" onclick="closeModal();document.getElementById('new').scrollIntoView()">View results</button>`)}
+function info(t,d){modal(`<h2>${t.toUpperCase()}</h2><p style="font-size:13px;line-height:1.8">${d}</p>`)}
+function toast(t){let el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600)}
+renderProducts();persist();
+</script></body></html>
