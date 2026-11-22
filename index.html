@@ -305,7 +305,47 @@ function showWishlist(){let items=products.filter(p=>wish.includes(p.id));modal(
 function openCart(){document.getElementById('cartOverlay').classList.add('show');renderCart()}function closeCart(){document.getElementById('cartOverlay').classList.remove('show')}
 function renderCart(){let el=document.getElementById('cartItems');document.getElementById('drawerCount').textContent='('+cart.reduce((a,b)=>a+b.qty,0)+')';if(!cart.length){el.innerHTML='<div class="empty">Your bag is waiting for its first piece.<br><br><a href="#new" onclick="closeCart()">Explore the drop ↗</a></div>'}else{el.innerHTML=cart.map((x,i)=>{let p=products.find(y=>y.id===x.id);return `<div class="cartitem"><img src="${p.img}"><div><h4>${p.name}</h4><small>Size: ${x.size}</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button>${x.qty}<button onclick="changeQty(${i},1)">+</button></div></div><b>${money(p.price*x.qty)}</b></div>`}).join('')}document.getElementById('subtotal').textContent=money(cart.reduce((a,x)=>a+products.find(p=>p.id===x.id).price*x.qty,0))}
 function changeQty(i,n){cart[i].qty+=n;if(cart[i].qty<1)cart.splice(i,1);persist();renderCart()}
-function checkout(){if(!cart.length){toast('Your bag is empty');return}closeCart();modal(`<h2>CHECKOUT PREVIEW</h2><p style="font-size:12px;color:#777">This is a front-end demo. Connect a secure backend and Razorpay before accepting real orders.</p><label>Full name</label><input placeholder="Your name"><label>Email</label><input type="email" placeholder="you@example.com"><label>Delivery address</label><input placeholder="Address, city, PIN code"><button class="primary" onclick="toast('Demo only — no order or payment was created.');closeModal()">Review order — ${money(cart.reduce((a,x)=>a+products.find(p=>p.id===x.id).price*x.qty,0))}</button>`)}
+function checkout(){
+ if(!cart.length){toast('Your bag is empty');return}
+ closeCart();
+ const total=cart.reduce((a,x)=>a+products.find(p=>p.id===x.id).price*x.qty,0);
+ modal(`<h2>DELIVERY DETAILS</h2>
+ <p style="font-size:12px;color:#71827A;line-height:1.6">Fill in your details to place your order directly through WhatsApp.</p>
+ <form id="whatsappOrderForm" onsubmit="submitWhatsAppOrder(event)">
+ <label>Customer name *</label><input id="orderName" type="text" placeholder="Enter your full name" required>
+ <label>Mobile number *</label><input id="orderPhone" type="tel" inputmode="numeric" pattern="[0-9+ -]{10,15}" placeholder="Your contact number" required>
+ <label>Full delivery address *</label><input id="orderAddress" type="text" placeholder="House / Flat, Street, Area" required>
+ <label>City *</label><input id="orderCity" type="text" placeholder="City" required>
+ <label>PIN code *</label><input id="orderPin" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="6-digit PIN code" required>
+ <div style="background:#E5F0E8;padding:14px;margin:12px 0;font-size:12px;line-height:1.8">
+ <b>YOUR ORDER</b><br>
+ ${cart.map(x=>{const p=products.find(y=>y.id===x.id);return `${p.name} | Size: ${x.size} | Qty: ${x.qty} | ${money(p.price*x.qty)}`}).join('<br>')}
+ <hr style="border:0;border-top:1px solid #C8D9CE">
+ <b>Total: ${money(total)}</b>
+ </div>
+ <button class="primary" type="submit">PLACE ORDER ON WHATSAPP ↗</button>
+ </form>
+ <p style="font-size:10px;color:#71827A;margin-top:12px">Your WhatsApp app will open with the order details. Send the message to complete your order request.</p>`);
+}
+function submitWhatsAppOrder(event){
+ event.preventDefault();
+ const name=document.getElementById('orderName').value.trim();
+ const phone=document.getElementById('orderPhone').value.trim();
+ const address=document.getElementById('orderAddress').value.trim();
+ const city=document.getElementById('orderCity').value.trim();
+ const pin=document.getElementById('orderPin').value.trim();
+ if(!name||!phone||!address||!city||!pin){toast('Please fill all required details');return}
+ const total=cart.reduce((a,x)=>a+products.find(p=>p.id===x.id).price*x.qty,0);
+ const orderLines=cart.map((x,i)=>{
+  const p=products.find(y=>y.id===x.id);
+  return `${i+1}. ${p.name}\n   Size: ${x.size}\n   Quantity: ${x.qty}\n   Price: ${money(p.price*x.qty)}`;
+ }).join('\n\n');
+ const message=`*AVENOR — NEW ORDER*\n\n*Customer Details*\nName: ${name}\nMobile: ${phone}\nAddress: ${address}\nCity: ${city}\nPIN Code: ${pin}\n\n*Order Items*\n${orderLines}\n\n*Total Amount: ${money(total)}*\n\nOrder booked via AVENOR website. Please confirm availability and delivery.`;
+ const whatsappURL='https://wa.me/919324419623?text='+encodeURIComponent(message);
+ window.open(whatsappURL,'_blank');
+ closeModal();
+ toast('WhatsApp opened — please press Send to submit your order');
+}
 function modal(s){document.getElementById('modalContent').innerHTML=s;document.getElementById('genericModal').classList.add('show')}function closeModal(){document.getElementById('genericModal').classList.remove('show')}
 function openAccount(){modal(`<h2>YOUR AVENOR ACCOUNT</h2><p style="font-size:12px;color:#777">Account sign-in will be enabled when authentication is connected.</p><label>Email address</label><input type="email" placeholder="you@example.com"><label>Password</label><input type="password" placeholder="Password"><button class="primary" onclick="toast('Connect Supabase Auth to enable secure login.');closeModal()">Continue</button><p style="font-size:11px">New here? Create an account at launch.</p>`)}
 function openSearch(){modal(`<h2>FIND YOUR NEXT PIECE</h2><input id="modalSearch" placeholder="Search tees, shorts, joggers…" oninput="document.getElementById('search').value=this.value;renderProducts()"><button class="primary" onclick="closeModal();document.getElementById('new').scrollIntoView()">View results</button>`)}
